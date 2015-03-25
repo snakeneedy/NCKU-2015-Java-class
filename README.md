@@ -11,8 +11,8 @@ HW_2
 1. 給定一個文字檔，若內容行數為奇數，取代第一個"hate"為"love"；若為偶數，取代最後一行的"hate"為"love"。
 2. 取代"JAVA"為"Java Software Development"，任意大小寫都要考慮，意即"jAva"和"JavA"都要取代。
 
-> HW_1 的技能加上 String 的函數使用。
-> indexOf( String ), lastIndexOf( String )
-> **要 catch FileNotFoundException**
+> HW_1 的技能加上 String 的函數使用：indexOf( String ), lastIndexOf( String )
 
-- - -
+> 備註：**需要 catch FileNotFoundException**
+
+* * *
