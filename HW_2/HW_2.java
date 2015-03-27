@@ -30,7 +30,6 @@ public class HW_2 {
 		while( (index = tmpString.indexOf("JAVA")) != (-1) ) {
 			preIndex = index;
 			resString = resString + copyString.substring(0, index) + "Java Software Development";
-			// TODO
 			copyString = copyString.substring(index + 4);
 			tmpString = tmpString.substring(index + 4);
 		}
