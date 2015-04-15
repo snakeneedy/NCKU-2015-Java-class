@@ -38,3 +38,48 @@ HW_3
 	(D,6); (G,1); (O,9); (T,4);
 	(A,9); (C,2); (E,1); (K,6); (T,3);
 	(A,1); (E,8); (H,2); (L,3); (P,0); (T,9);
+
+HW_4
+----------
+*deadline: 2015/04/17 Fir. 09:00*
+
+作業說明：
+
+透過`command`輸入，讀取多個`csv`檔，由`,`(逗號)分隔。第一行表示商品名稱，接下來的幾行表示使用者對商品的評價
+
+範例檔案：`hw4_file1.csv`、`hw4_file1.csv`
+
+- hw4_file1.csv
+
+	Caffé Latte,Java Chip Frappuccino,Espresso,Cappuccino
+	2,5,1,3
+	3,5,,4
+	4,5,2,1
+
+- hw4_file2.csv
+
+	Signature Hot Chocolate,Caramel Frappuccino,Ristretto Bianco
+	1,2,3
+	3,5,5
+	4,3,1
+	2,4,2
+
+範例執行：
+
+```bash
+javac HW_4.java
+java HW_4 hw4_file1.csv hw4_file2.csv
+```
+
+範例結果：
+
+	---001---
+	[Java Chip Frappuccino   , 5.00, 5, 5, 0.00]
+	[Caffé Latte             , 3.00, 4, 2, 1.00]
+	[Cappuccino              , 2.67, 4, 1, 1.53]
+	[Espresso                , 1.50, 2, 1, 0.71]
+	---002---
+	[Caramel Frappuccino     , 3.50, 5, 2, 1.29]
+	[Ristretto Bianco        , 2.75, 5, 1, 1.71]
+	[Signature Hot Chocolate , 2.50, 4, 1, 1.29]
+
