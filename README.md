@@ -73,12 +73,12 @@ java HW_4 hw4_file1.csv hw4_file2.csv
 
 範例結果：
 
-	---001---
+	--001--
 	[Java Chip Frappuccino,   5.00, 5, 5, 0.00]
 	[Caffé Latte,             3.00, 4, 2, 1.00]
 	[Cappuccino,              2.67, 4, 1, 1.53]
 	[Espresso,                1.50, 2, 1, 0.71]
-	---002---
+	--002--
 	[Caramel Frappuccino,     3.50, 5, 2, 1.29]
 	[Ristretto Bianco,        2.75, 5, 1, 1.71]
 	[Signature Hot Chocolate, 2.50, 4, 1, 1.29]

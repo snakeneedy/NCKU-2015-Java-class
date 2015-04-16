@@ -15,7 +15,7 @@ public class HW_4 {
 				while ( id.length() < 3 ) {
 					id.insert( 0, "0" );
 				}
-				System.out.println("---" + id.toString() + "---");
+				System.out.println("--" + id.toString() + "--");
 				productsArray = analyzeFile( args[ti] );
 				Arrays.sort( productsArray );
 				for (int i=0; i<productsArray.length; ++i) {
