@@ -106,8 +106,8 @@ $$Word_{G} => Word_{1}, Word_{2}, ..., Word_{n},$$
 
 **輸入範例：**
 
-- [hw5_input.txt](hw5_input.txt)
-- [dictionary.txt](dictionary.txt)
+- [hw5_input.txt](HW_5/hw5_input.txt)
+- [dictionary.txt](HW_5/dictionary.txt)
 
 **輸出範例：**
 
