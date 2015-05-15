@@ -122,3 +122,108 @@ $$Word_{G} => Word_{1}, Word_{2}, ..., Word_{n},$$
 	canon => ann, anno, anon, can, canon, con, conn, nan, non, 
 	nikon => ikon, ink, inn, ion, kin, non, oink, 
 
+## HW_6
+
+*deadline: 2015/05/15 Fir. 09:00*
+
+**作業說明：**
+
+- 由 command 的方式將`hw6_input.txt`讀入，針對每一行的**中序**運算式，先**轉成前序**，再求出其算式結果。
+- 運算元只會是整數，運算子有`+`、`-`、`*`、`/`、`(`、`)`，其中除法不考慮浮點數，用`int`運算即可
+- 需判斷是否有不合法的輸入、`int`的溢位、除於 0 的問題
+
+**範例輸入：**
+
+	1 + 2
+	6 + 5 * 4
+	1 - 2 + 3 - 4 + 5 - 6 + 7 - 8 + 9 - 10
+	999 - 888 * ( 777 / 666 ) - 555 + 444
+	-6 + 0 - ( -6 )
+	( ( 1 + 2 ) + 3 ) + 4 + 5 )
+	5 / 0 + 1
+	2147483647 + 1
+	1234567890
+	9876543210
+
+**範例輸出：**
+
+	1 2 +
+	3
+	6 5 4 * +
+	26
+	1 2 - 3 + 4 - 5 + 6 - 7 + 8 - 9 + 10 -
+	-5
+	999 888 777 666 / * - 555 - 444 +
+	0
+	-6 0 + -6 -
+	0
+	Invalid expression
+	Invalid expression
+	5 0 / 1 +
+	Divide by zero
+	2147483647 1 +
+	Overflow
+	1234567890
+	1234567890
+	9876543210
+	Overflow
+
+**參考演算法 pseudo code**
+
+```java
+transform (infix_expr) {
+	for each (token) in (infix_expr)
+		switch (token)
+			case operand:
+				if (pre_token is operand)
+					return "Invalid expression"
+				pre_token <- operand
+				print (token)
+
+			case operator:
+				if (pre_token is operator)
+					return "Invalid expression"
+				pre_token <- operator
+				while ( !stack.isEmpty()
+						&& precedence(stack.top()) <= precedence(token) )
+					print( stack.pop() )
+				// precedence: [+-] < [*/] < [(]
+				stack.push( token )
+
+			case left-parentheses:
+				if (pre_token is operand)
+					return "Invalid expression"
+				stack.push( token )
+
+			case right-parentheses:
+				if (pre_token is operator)
+					return "Invalid expression"
+				while (!stack.isEmpty() && stack.top() != left-parentheses)
+					print( stack.pop() )
+				if ( stack.isEmpty() )
+					return "Invalid expression"
+				stack.pop()
+		end switch
+	end for
+	while( !stack.isEmpty() )
+		print( stack.pop() )
+}
+```
+
+```java
+evaluate (postfix_expr) {
+	for each (token) in (postfix_expr)
+		switch (token)
+			case operand:
+				stack.push( token )
+			case operator:
+				Y <- stack.pop()
+				X <- stack.pop()
+				Temp <- X (token) Y
+				// check if the value is overflow
+				stack.push( Temp )
+		end switch
+	end for
+	print( stack.top() )
+}
+```
